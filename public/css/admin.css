@@ -1,0 +1,55 @@
+main#admin-main {
+  margin: 30px 0;
+  box-shadow: unset;
+  -webkit-box-shadow: unset;
+}
+
+main#admin-main div.content-box {
+  background: #f7f7f7;
+  padding: 20px 0;
+  border-radius: 3px;
+}
+
+main#admin-main .list-group li span {
+  vertical-align: middle;
+}
+
+#alt-menu > ul {
+  text-align: right;
+  width: 100%;
+  list-style: none;
+}
+
+#list-vue .actions-group {
+  text-align: center;
+}
+
+#page-title {
+  text-transform: uppercase;
+  margin-bottom: 30px;
+  font-size: 30px;
+}
+
+#simulacao_view .row.color .col {
+  background: #f7f7f7;
+  margin: 0 5px;
+  padding: 15px 20px;
+}
+
+#simulacao_view .row.color .col strong {
+  font-size: 17px;
+}
+
+#inputfilter > * {
+  display: inline-block;
+  width: auto;
+}
+
+#inputfilter > div + div {
+  margin-left: 5px;
+}
+
+#ativo-filter > label {
+  margin-left: 20px;
+}
+

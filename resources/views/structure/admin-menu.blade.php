@@ -1,0 +1,5 @@
+<li class="nav-item"> <a class="nav-link {{ active('admin') }}" href="{{ route('admin') }}">Dashboard</a> </li>
+<li class="nav-item"> <a class="nav-link {{ active(['admin_clientes','admin_clientes.edit']) }}" href="{{ route('admin_clientes') }}">Clientes</a> </li>
+<li class="nav-item"> <a class="nav-link {{ active(['admin_vendedores','admin_vendedores.edit','admin_vendedores.new']) }}" href="{{ route('admin_vendedores') }}">Vendedores</a> </li>
+<li class="nav-item"> <a class="nav-link {{ active(['admin_simulacoes','admin_simulacoes.edit','admin_simulacoes.new']) }}" href="{{ route('admin_simulacoes') }}">Simulações</a> </li>
+<li class="nav-item"> <a class="nav-link {{ active(['admin_vouchers','admin_vouchers.edit','admin_vouchers.new']) }}" href="{{ route('admin_vouchers') }}">Vouchers</a> </li>

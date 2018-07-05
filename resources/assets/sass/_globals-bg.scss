@@ -1,0 +1,105 @@
+
+.bg-metal {/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#f7f7f7+0,e7e7e7+100 */
+  border-bottom: 2px solid #d7d7d7 !important;
+  background: #f7f7f7; /* Old browsers */
+  background: -moz-linear-gradient(top, #f7f7f7 0%, #EFEFEF 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, #f7f7f7 0%,#EFEFEF 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, #f7f7f7 0%,#EFEFEF 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f7f7f7', endColorstr='#EFEFEF',GradientType=0 ); /* IE6-9 */
+}
+
+.bg-blue {
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#375d7b+0,31536e+100 */
+  border-bottom: 2px solid #264054 !important;
+  background: #375d7b; /* Old browsers */
+  background: -moz-linear-gradient(top, #375d7b 0%, #31536e 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, #375d7b 0%,#31536e 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, #375d7b 0%,#31536e 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#375d7b', endColorstr='#31536e',GradientType=0 ); /* IE6-9 */
+}
+
+.bg-blue-dark {
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#375d7b+0,31536e+100 */
+  border-bottom: 2px solid #1B3549 !important;
+  background: #31536E; /* Old browsers */
+  background: -moz-linear-gradient(top, #31536E 0%, #264054 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, #31536E 0%,#264054 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, #31536E 0%,#264054 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#31536E', endColorstr='#264054',GradientType=0 ); /* IE6-9 */
+}
+
+.txt-sblue {text-shadow: 0px -1px 0px #163044;}
+
+
+
+//================ BUTTONS
+
+.btn {
+  border-radius: 3px !important; transition: background-color 0.23s ease; 
+  &:focus, &.focus {box-shadow: none !important; -webkit-box-shadow: none !important}
+}
+
+.btn-light-blue { 
+  color: #f7f7f7;
+  border-bottom: 2px solid #264054 !important;
+  background: #489EBD;
+  &:hover {background: #3A7E97};
+}
+
+#btn-clearsearch {display: block; position: absolute; border: none; border-radius: 50px; background: #e7e7e7; color: #777777; text-align: center; right: 10px; bottom: 7px; cursor: pointer; font-size: 14px !important;opacity: 0.8;font-weight: 600 !important;padding: 0 9px 2px ;
+  &:hover {opacity: 1;background: #e4e4e4}
+}
+
+.btn-confirm-delete {cursor: pointer;}
+
+.btn-assista {
+  font-family: open sans; font-weight: 600 !important; padding: 12px 20px !important; color: #f7f7f7; margin-top: 10px;background: #3C5057;font-size: 16px !important;border-bottom: 2px solid #2C4047 !important;
+  &:hover {color: #f7f7f7;background: #2C4047}
+  span {display: inline-block; width: 18px; height: 18px; background: url(../images/assista.png);vertical-align: sub;margin-right: 15px;}
+}
+
+
+.btn-voltar {background: #3C5057; color: #f7f7f7; margin-top: 10px;border-bottom: 2px solid #333333 !important;
+  &:hover {background: #333;color: #f7f7f7}
+}
+
+.btn-add {background: #375D7B;color: #f7f7f7;border-bottom: 2px solid #31536E !important;
+  &:hover {background: #264054; border-bottom: 2px solid #163044;color: #f7f7f7 !important;}
+}
+
+.btn-enviar {
+  background: #489EBD; color: #f7f7f7; font-family: open sans; font-weight: 600 !important; text-transform: uppercase; padding: 10px 0 !important;border-bottom: 2px solid #3A7E97 !important;cursor: pointer;
+  &:hover {background: #3A7E97}
+}
+
+.btn-entrar {
+  background: #375D7B;color: #f7f7f7;display: inline-block; padding: 5px 20px !important;border-bottom: 2px solid #264054 !important;
+  &:hover{background:  #264054}
+}
+
+.btn-close {
+  background: #333; color: #f7f7f7; font-weight: 600 !important; font-size: 14px !important; margin-top: 10px;
+  &:hover {background: #222}
+}
+
+.btn-csv {
+  background: #BA832E;color: #f7f7f7;border-bottom: 2px solid #6E5631 !important;
+  &:hover {background: #AA731E;color: #f7f7f7;}
+}
+
+.btn-area {font-family: open sans; font-weight: 600 !important;text-transform: uppercase; font-size: 0.84rem !important;letter-spacing: 0.3px;}
+
+.btn-facebook{
+  background: #4267B2; color: #f7f7f7; font-family: open sans; padding: 10px 20px !important; font-weight: 600 !important;border-bottom: 2px solid #3257A2 !important;
+  &:hover {background: #3257A2; color: #f7f7f7}
+}
+
+.btn-ver {
+  background: #52B3D7;color: #f7f7f7;border-bottom: 2px solid #489EBD !important;
+  &:hover {background: #489EBD;color: #f7f7f7;border-bottom: 2px solid #3A7E97 !important}
+}
+
+.btn-remover {
+  background: #3C5057;color: #f7f7f7;border-bottom: 2px solid #333333 !important;
+  &:hover {background: #2C4047;color: #f7f7f7;border-bottom: 2px solid #222222 !important}
+}

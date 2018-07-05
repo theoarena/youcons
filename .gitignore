@@ -1,6 +1,11 @@
 vendor/
 node_modules/
 npm-debug.log
+material/
+blog/
+*.sublime-project
+*.sublime-workspace
+public/js/inputmask/
 
 # Laravel 4 specific
 bootstrap/compiled.php

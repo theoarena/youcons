@@ -1,0 +1,1 @@
+<li class="nav-item"> <a class="nav-link {{ active('clientes') }}" href="{{ route('clientes') }}">Área de clientes</a> </li>
