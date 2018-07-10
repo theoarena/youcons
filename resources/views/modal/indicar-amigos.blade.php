@@ -7,20 +7,25 @@
 	        <span aria-hidden="true">&times;</span>
 	      </button>
 	    </div>
-	    <div class="modal-body container">          
+	    <div class="modal-body container p-4">          
 	     
 	    	<div class="row">
 	    		<div class="col">
-	    			<h4 class="text-center mb-4">Gostaria de indicar a youcons para amigos?</h4>	    			
+	    			<h4 class="text-center mb-4 font-weight-bold">Gostaria de indicar a Youcons para amigos?</h4>	    			
 	    		</div>	    		
 	    	</div>
 	    	<div class="row">
 	    		<div class="col">
-	    			<p>Quando você indica alguém e essa pessoa cria uma conta conosco, você ganha pontos!</p>
+	    			<p class="">Quando você indica alguém e essa pessoa cria uma conta conosco, você <strong>ganha pontos!</strong></p>
 	    		</div>
 	    		<div class="col">
-	    			<p>Se essa pessoa fechar um consórcio, você ganha mais pontos!</p>	    			
+	    			<p>Se a pessoa que você indicou fechar um consórcio conosco, você ganha <strong>mais pontos!</strong></p>	    			
 	    		</div>
+	    	</div>
+	    	<div class="row">
+	    		<div class="col">
+	    			<p class="lead text-center">Basta inserir o email da pessoa no campo abaixo!</p>	    			
+	    		</div>	    		
 	    	</div>
 	    	<form method="POST" action="{{ route('clientes_indicar-amigo') }}">
 	    		@csrf

@@ -80402,7 +80402,7 @@ module.exports = {
         case 'indicacao-error':
           this.textMessage = "Ocorreu algum erro durante a indicação, tente novamente!";break;
         case 'indicacao-success':
-          this.textMessage = "Enviamos um convite para sua indicação, obrigado!";break;
+          this.textMessage = "Enviamos um convite para a sua indicação, obrigado!";break;
         case 'indicacao-exists':
           this.textMessage = "O email fornecido já foi indicado!";break;
         case 'indicacao-user-exists':
