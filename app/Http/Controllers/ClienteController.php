@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Storage;
 
 use App\User;
 use App\Indicacao;
+use App\Jobs\IndicacaoEmail;
 
 class ClienteController extends Controller
 {
@@ -36,18 +37,24 @@ class ClienteController extends Controller
         $exists = Indicacao::where('email',$request->input('email'))->count();
         $msg = "indicacao-error";       
 
-        if($exists == 0)
+        if($exists == 0)//se não existe
         {
             //verifica na tebela usuario
             $exists2 = User::where('email',$request->input('email'))->count();
 
-            if($exists2 == 0)
+            if($exists2 == 0)//se não existe
             {
+                $secret = encrypt( ($request->input('email')."-".$request->input('user')) );
+
                 $indicacao = new Indicacao;
                 $indicacao->email = $request->input('email');
                 $indicacao->user_id = $request->input('user');
+                $indicacao->key = $secret;
                 if($indicacao->save())
+                {                    
+                    IndicacaoEmail::dispatch( $request->input('email'), $request->input('user'), $indicacao->id )->onQueue('emails');
                     $msg = "indicacao-success";
+                }
             }
             else              
                 $msg = 'indicacao-user-exists';

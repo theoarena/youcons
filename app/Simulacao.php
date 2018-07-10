@@ -29,6 +29,16 @@ class Simulacao extends Model
     {
       return Simulacao::where('active',0)->whereDate('created_at','<=', date('Y-m-d H:i:s'))->get();
     }
+	
+	/* 
+		Como só há 3 tipos de modalidades, não há necessidade de fazer um model, etc.
+		Aqui é retornado um array contendo os ID's das modalidades: imob, veicular, serviços
+
+	 */
+	public static function getAllModalidadesTipos()
+	{
+		return [1,2,3];
+	}
 
     public function getCreatedAtAttribute($value)
 	{

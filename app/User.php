@@ -6,9 +6,10 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Facades\Storage;
-
+use Illuminate\Support\Facades\DB;
 use App\Interacao;
 use App\Voucher;
+use App\Simulacao;
 
 
 class User extends Authenticatable
@@ -86,6 +87,13 @@ class User extends Authenticatable
     public function getCreatedAtAttribute($value)
     {
       return formatDate($value,'d/m/Y');    
+    }
+
+    public function getSimulacoesNaoFeitasTipo()
+    {     
+      $feitas = DB::table('simulacoes')->where('user_id',$this->id)->pluck('modalidade_id');       
+      $todas = Simulacao::getAllModalidadesTipos();               
+      return array_diff( $todas,$feitas->toArray() );    
     }
 
     public function addInteracao($tipo,$xp = null)

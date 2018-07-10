@@ -9,11 +9,13 @@
         </div>
           --}}
 
-        <div class="collapse navbar-collapse" id="hamburg_menu">
-            <ul class="nav justify-content-end collapse navbar-collapse"> 
-              @include('structure.cliente-simulacao-menu')
-            </ul>  
-        </div>  
+        @section('simulacao-menu')
+          <div class="collapse navbar-collapse" id="hamburg_menu">
+              <ul class="nav justify-content-end collapse navbar-collapse"> 
+                @include('structure.cliente-simulacao-menu')
+              </ul>  
+          </div>  
+          @show
 
     </nav>
 </div>

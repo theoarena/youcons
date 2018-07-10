@@ -41,6 +41,7 @@ class ClienteSimulacoesController extends Controller
         return view('clientes.simulacoes-form', ['form' => $form, "pageTitle" => "Solicitar nova simulação"] );   
     }
 
+    //não está mais sendo usado, tudo é feito por API
     public function save(Request $request)
     {
 

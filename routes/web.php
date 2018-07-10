@@ -19,6 +19,9 @@ Route::get('/', 'HomeController@index');
 Route::get('/home', 'HomeController@index')->name('home');
 Route::post('/home/simulacao', 'HomeController@simulacao')->name('simulacao_home');
 
+Route::get('/indicacao', 'HomeController@indicacao')->name('indicacao');
+Route::post('/indicacao-save', 'HomeController@indicacao_save')->name('indicacao_save');
+
 //Admin
 Route::middleware(['auth'])->prefix('admin')->group(function () {
     
@@ -55,11 +58,12 @@ Route::middleware(['auth'])->prefix('admin')->group(function () {
 
 	Route::get('/perfil', 'AdminController@profile')->name('admin_perfil');
 
-	Route::get('/mailable', function () {
-    	$user = App\User::find(Auth::id());
-    	$user->sendMailUserCreated('testepass');
-    	//return new App\Mail\UserCreated($user,'testepass');
-	});
+});
+
+Route::get('/mailable', function () {
+	$user = App\User::find(Auth::id());
+	//$user->sendMailUserCreated('testepass');
+	return new App\Mail\IndicacaoCreated('theoarena@hotmail',$user,6);
 });
 
 //clientes 

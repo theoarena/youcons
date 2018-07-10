@@ -24,6 +24,15 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+Route::get('/teste', function(Request $request){
+
+    /*$user = User::find(39);
+    $arr = $user->getSimulacoesNaoFeitasTipo();
+
+    print_r($arr);*/
+
+});
+
 //pega os "tesouros" aka registro de cada voucher do cliente
 Route::get('/tesouros', function(Request $request){
 
@@ -199,6 +208,10 @@ Route::post('/simulacoes/save/', function(Request $request){
     $parcela = $formatter->parseCurrency($parcela, $curr);     
     $lance = $formatter->parseCurrency($lance, $curr);     */
 
+    $user = User::find($request->input('data.user'));
+    //pega os tipos de simulação que não foram feitas por esse usuario
+    $simu_naofeitas =  $user->getSimulacoesNaoFeitasTipo();
+
     $simu = new Simulacao;
     $simu->user_id = $request->input('data.user');
     $simu->modalidade_id = $request->input('data.modalidade');
@@ -207,6 +220,19 @@ Route::post('/simulacoes/save/', function(Request $request){
     $simu->lance = $lance;
     $simu->pressa = $request->input('data.pressa');
     $simu->save();
+
+    //se foi a primeira simulação
+    if($user->qtd_simulacoes == 0)
+        $user->addInteracao('1a-simulacao-site'); 
+    //se não for a primeira verifica se esse tipo de modalidade não foi feito ainda
+    else if(in_array( $request->input('data.modalidade') , $simu_naofeitas))
+         $user->addInteracao('1a-simulacao-modalidade');    
+
+    $user->increment('qtd_simulacoes'); //+1 na qtd de simulações
+    $user->save();
+
+    //$modalidades = $user->getSimulacoesModalidades();
+
     return response()->json( [ 'status'=>'ok' ] );
 
 })->name('api_simulacao.save');

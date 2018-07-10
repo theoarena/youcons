@@ -8,6 +8,7 @@ use Validator;
 use App\User;
 use App\Simulacao;
 use App\Role;
+use App\Indicacao;
 
 use App\Jobs\UserCreatedEmail;
 use App\Mail\UserCreated;
@@ -15,6 +16,7 @@ use App\Mail\UserCreated;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {  
@@ -126,5 +128,70 @@ class HomeController extends Controller
 
         }       
     }
+
+    //verifica a indicação e mostra o form
+    public function indicacao(Request $request, FormBuilder $formBuilder)
+    {
+        $ind = $request->query('ind');        
+        $key = $request->query('key');        
+
+        $indicacao = Indicacao::where([
+            ['id',$ind],
+            ['key',$key],
+            ['active',1]
+        ])->first();
+
+        $msg = 'erro';
+
+        //se a indicação existe (id+key corretos)
+        if($indicacao)
+        {
+            $form = $formBuilder->create('App\Forms\IndicacaoForm', [
+                'method' => 'POST',
+                'url' => route('indicacao_save')            
+            ],[ 'indicacao_id' => $ind ]);
+            $msg = 'success';
+        }
+
+        return view('indicacao', compact('form') )->with('msg',$msg);
+    }
+
+    
+    public function indicacao_save(Request $request)
+    {
+        $messages = ['password.confirmed' => 'A confirmação de senha não coincide com a senha original! Por favor, insira os mesmos valores.'];
+
+        $validator = $request->validate([
+            'nome' => 'required|max:60',
+            'password' => 'confirmed:password_confirmation'                      
+        ],$messages);                   
+
+        $indicacao = Indicacao::find( $request->input('id') );
+        //cria o novo usuario e atualiza a entrada da indicação
+
+        $user = new User();
+        $user->email = $indicacao->email;
+        $user->name = $request->input('nome');  
+        $user->indicacao = 1;  
+        $user->password = Hash::make( $request->input('password') );        
+
+        if($user->save())
+        {           
+            $user->addRole('cliente');
+
+            $indicacao->active = 0;
+            $indicacao->indicado_id = $user->id;
+            $indicacao->save();
+
+            //insere uma interação nova pro usuario que indicou
+            $quem_indicou = User::find($indicacao->user_id);
+            $quem_indicou->addInteracao('indicacao-cadastro');
+
+            Auth::login($user);
+            return redirect()->route('login');
+        }
+
+    }
+
 
 }

@@ -215,8 +215,7 @@
 
         this['okstep'+this.actualstep] = false;
         this['okstep'+n] = true;  
-        this.actualstep = n;   
-      
+        this.actualstep = n;         
 
         switch(n)
         {
@@ -226,7 +225,6 @@
           case 4: this.setMessage("simulacao-app-step4");break;
           case 5: this.setMessage("simulacao-app-step5");break;         
         }
-
 
       },
       endSimulacao:function()
