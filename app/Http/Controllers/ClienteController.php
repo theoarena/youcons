@@ -9,6 +9,7 @@ use Intervention\Image\ImageManagerStatic as Image;
 use Illuminate\Support\Facades\Storage;
 
 use App\User;
+use App\Indicacao;
 
 class ClienteController extends Controller
 {
@@ -29,6 +30,34 @@ class ClienteController extends Controller
      //   return view('clientes.home', ["pageTitle" => "Área de clientes"]);
     }
 
+    public function indicar_amigo( Request $request)
+    {
+        //verifica na tabela de indicação
+        $exists = Indicacao::where('email',$request->input('email'))->count();
+        $msg = "indicacao-error";       
+
+        if($exists == 0)
+        {
+            //verifica na tebela usuario
+            $exists2 = User::where('email',$request->input('email'))->count();
+
+            if($exists2 == 0)
+            {
+                $indicacao = new Indicacao;
+                $indicacao->email = $request->input('email');
+                $indicacao->user_id = $request->input('user');
+                if($indicacao->save())
+                    $msg = "indicacao-success";
+            }
+            else              
+                $msg = 'indicacao-user-exists';
+        }
+        else
+            $msg = 'indicacao-exists';
+
+        return redirect()->back()->with('message-youcon', $msg);
+    }
+
     public function bem_vindo()
     {
         $user = Auth::user();        
@@ -38,7 +67,8 @@ class ClienteController extends Controller
     public function pontos(FormBuilder $formBuilder, Request $request)
     {
         $user = Auth::user();   
-        $request->session()->flash('message-youcon' , 'cliente-pontos');
+        if (!$request->session()->has('message-youcon'))
+            $request->session()->flash('message-youcon' , 'cliente-pontos');
         return view('clientes.pontos', ["pageTitle" => "Meus ovos de ouro", "user" => $user] );
     }
 

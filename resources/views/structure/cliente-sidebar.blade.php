@@ -18,6 +18,11 @@
 	<li class="nav-item"> <a class="nav-link {{ active(['clientes','clientes_simulacoes.new','clientes_simulacoes.edit']) }}" href="{{ route('clientes') }}">Minhas simulações</a> </li>
 	<li class="nav-item"> <a class="nav-link {{ active('clientes_perfil') }}" href="{{ route('clientes_perfil') }}">Minha conta</a> </li>
 	<li class="nav-item"> <a class="nav-link {{ active('clientes_pontos') }}" href="{{ route('clientes_pontos') }}">Meus ovos de ouro</a> </li>
+	<li class="nav-item">
+		
+		<button class="btn" id="btn-indicar-amigos" data-toggle="modal" data-target="#modalindicar">Indicar para amigos</button>
+
+	</li>
 </ul>
 
 <div id="youcon-sidebar-app">	

@@ -72,6 +72,7 @@ Route::post('/perfil/save', 'ClienteController@save')->name('clientes_profile.sa
 Route::post('/perfil/save-picture', 'ClienteController@save_picture')->name('clientes_profile_picture.save');
 
 Route::get('/bem-vindo', 'ClienteController@bem_vindo')->name('clientes_bem-vindo');
+Route::post('/indicar-amigo', 'ClienteController@indicar_amigo')->name('clientes_indicar-amigo');
 
 Route::get('/simulacoes', 'ClienteSimulacoesController@index')->name('clientes_simulacoes');
 Route::get('/simulacoes/new', 'ClienteSimulacoesController@new')->name('clientes_simulacoes.new');

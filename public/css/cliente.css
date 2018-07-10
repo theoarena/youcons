@@ -353,6 +353,21 @@ main#cliente-app {
   cursor: pointer;
 }
 
+#cliente-sidebar #btn-indicar-amigos {
+  width: 80%;
+  background: #31536E;
+  color: #f7f7f7;
+  margin: 20px auto 0;
+  display: block;
+  font-family: open sans;
+  font-weight: 600;
+  border-bottom: 2px solid #264054;
+}
+
+#cliente-sidebar #btn-indicar-amigos:hover {
+  background: #264054;
+}
+
 #cliente-picture-container {
   position: relative;
 }

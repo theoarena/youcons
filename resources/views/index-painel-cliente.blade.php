@@ -64,6 +64,7 @@
 
         @include('structure/footer-script')
         @include('modal/ovos-de-ouro')
+        @include('modal/indicar-amigos')
     
        
     </body>

@@ -46,7 +46,7 @@ class User extends Authenticatable
       return $this->belongsToMany('App\Interacao');
     }  
 
-    //o usuário tem TESOUROS, não VOUCHERS
+    //o usuário tem TESOUROS, não VOUCHERS. Voucher é só o nome interno
     public function tesouros()
     {
       return $this->belongsToMany('App\Voucher', 'user_voucher');
@@ -55,6 +55,11 @@ class User extends Authenticatable
     public function simulacoes()
     {
         return $this->hasMany('App\Simulacao');
+    }
+
+    public function indicacao()
+    {
+        return $this->hasOne('App\Indicacao','indicado_id');
     }
     
     public function addRole($role)
