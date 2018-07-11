@@ -20,7 +20,7 @@
 
 		</div>
 
-		<div class="col-md-4">			
+		<div class="col-md-4" id="col-social">			
 
 			<h3 class="tit_footer text-center">Siga a Youcons!</h3>
 			<div id="social">
@@ -36,7 +36,7 @@
 
 	</div>
 
-	<div class="row">
+	<div class="row" id="copyright">
 
 		<div class="col"><img id="logo_footer" src="{{ asset('images/logo_footer.png') }}"></div>
 		<div class="col text-right"><small>Youcons 2018 - Todos os direitos reservados</small></div>

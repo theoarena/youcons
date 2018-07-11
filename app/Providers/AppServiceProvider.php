@@ -8,6 +8,14 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\View;
 //use Illuminate\Support\Facades\Schema;
 
+use App\Simulacao;
+use App\Observers\SimulacaoObserver;
+
+/*
+use App\User;
+use App\Observers\UserObserver;
+*/
+
 class AppServiceProvider extends ServiceProvider
 {
     private $pageTitle = "Youcons";
@@ -27,7 +35,10 @@ class AppServiceProvider extends ServiceProvider
         
         View::share('pageTitle', $this->pageTitle);             
         View::share('useModal', $this->useModal);             
-        View::share('filter_ativo', $this->filter_ativo);                              
+        View::share('filter_ativo', $this->filter_ativo);
+
+        Simulacao::observe(SimulacaoObserver::class);                             
+       // User::observe(UserObserver::class);                             
     }
 
     /**

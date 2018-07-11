@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\DB;
 use App\Interacao;
 use App\Voucher;
 use App\Simulacao;
+use App\Notifications\ResetPasswordNotification;
 
 
 class User extends Authenticatable
@@ -190,6 +191,11 @@ class User extends Authenticatable
       //TODO
       //fazer fila
       Mail::to($this->email)->send(new UserCreated($this, $pass));      
+    }
+
+    public function sendPasswordResetNotification($token)
+    {
+        $this->notify(new ResetPasswordNotification($token));
     }
 
 }

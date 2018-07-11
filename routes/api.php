@@ -26,10 +26,10 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::get('/teste', function(Request $request){
 
-    /*$user = User::find(39);
-    $arr = $user->getSimulacoesNaoFeitasTipo();
+    $user = User::find(39);
+    $arr = $user->testeEmail('asdasd');
 
-    print_r($arr);*/
+    print_r($arr);
 
 });
 

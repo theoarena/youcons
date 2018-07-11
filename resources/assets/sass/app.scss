@@ -577,6 +577,15 @@ p.VuePagination__count {background: #375D7B; color: #f7f7f7; padding: 3px 11px; 
 
   section#produtos .col-md {margin-bottom: 10px}
   header nav li {display: block; width: 100%} 
+  #col-middle-padding {padding-top: 0}
+  #col-social{
+    margin: 10px 0;
+    #social{ text-align: center;
+      a {float: none;}
+    }
+  }
+  #copyright .col {text-align: center !important}
+ 
 }
 
 @media (max-width: 575.98px) { 

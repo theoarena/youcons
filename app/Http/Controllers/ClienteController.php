@@ -52,7 +52,7 @@ class ClienteController extends Controller
                 $indicacao->key = $secret;
                 if($indicacao->save())
                 {                    
-                    IndicacaoEmail::dispatch( $request->input('email'), $request->input('user'), $indicacao->id )->onQueue('emails');
+                    IndicacaoEmailJob::dispatch( $request->input('email'), $request->input('user'), $indicacao->id )->onQueue('emails');
                     $msg = "indicacao-success";
                 }
             }

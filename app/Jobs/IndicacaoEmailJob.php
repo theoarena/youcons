@@ -2,7 +2,6 @@
 
 namespace App\Jobs;
 
-use App\User;
 use Illuminate\Bus\Queueable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Queue\InteractsWithQueue;
@@ -10,25 +9,27 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 
 use Illuminate\Support\Facades\Mail;
-use App\Mail\UserCreated;
-use Illuminate\Support\Carbon;
+use App\Mail\IndicacaoCreated;
+//use Illuminate\Support\Carbon;
 
-class UserCreatedEmail implements ShouldQueue
+class IndicacaoEmailJob implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
     public $tries = 3;
     protected $user;
-    protected $pass;
+    protected $email;
+    protected $indicacao;
     /**
      * Create a new job instance.
      *
      * @return void
      */
-    public function __construct(User $user,$pass)
+    public function __construct($email,$user,$indicacao)
     {
-         $this->user = $user;
-         $this->pass = $pass;
+         $this->email = $email;        
+         $this->user = $user;        
+         $this->indicacao = $indicacao;        
     }
 
     /**
@@ -39,6 +40,6 @@ class UserCreatedEmail implements ShouldQueue
     public function handle()
     {
         /*Carbon::now()->addSeconds(30),*/ 
-        Mail::to($this->user->email)->send( new UserCreated($this->user, $this->pass) );     
+        Mail::to($this->email)->send( new IndicacaoCreated($this->email, $this->user, $this->indicacao) );     
     }
 }

@@ -11984,6 +11984,26 @@ p.VuePagination__count {
     display: block;
     width: 100%;
   }
+
+  #col-middle-padding {
+    padding-top: 0;
+  }
+
+  #col-social {
+    margin: 10px 0;
+  }
+
+  #col-social #social {
+    text-align: center;
+  }
+
+  #col-social #social a {
+    float: none;
+  }
+
+  #copyright .col {
+    text-align: center !important;
+  }
 }
 
 @media (max-width: 575.98px) {

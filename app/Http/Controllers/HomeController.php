@@ -107,8 +107,8 @@ class HomeController extends Controller
                 $user->addInteracao('1a-simulacao-site'); //adiciona a interação
             
             //envia email de boas vindas
-            Mail::to($user->email)->send( new UserCreated($user, $pass) );   
-            //UserCreatedEmail::dispatch($user,$pass)->onQueue('emails');
+            UserEmailJob::dispatch($user,'user-created-welcome',$pass)->onQueue('emails');
+            //Mail::to($user->email)->send( new UserCreated($user, $pass) );   
 
             $data = [
                 'show_modal' => 1,
@@ -129,7 +129,8 @@ class HomeController extends Controller
         }       
     }
 
-    //verifica a indicação e mostra o form
+    //
+    //verifica a indicação e mostra a página com o form
     public function indicacao(Request $request, FormBuilder $formBuilder)
     {
         $ind = $request->query('ind');        
@@ -156,7 +157,7 @@ class HomeController extends Controller
         return view('indicacao', compact('form') )->with('msg',$msg);
     }
 
-    
+    //salva, cria usuario, redireciona
     public function indicacao_save(Request $request)
     {
         $messages = ['password.confirmed' => 'A confirmação de senha não coincide com a senha original! Por favor, insira os mesmos valores.'];

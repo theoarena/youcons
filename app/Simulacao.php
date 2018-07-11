@@ -13,7 +13,7 @@ class Simulacao extends Model
 
 	protected $fillable = [
         'credito', 'lance', 'parcela','pressa', 'modalidade_id'
-    ];
+    ];   
 
 	public function cliente()
 	{
