@@ -32,7 +32,7 @@ class AdminSimulacaoController extends Controller
         return view('admin.simulacoes-edit', ['pageTitle' => 'Simulações', "obj" => $simulacao, 'form' => $form] );
     }
 
-    public function save(Request $request) //cria ou atualiza o cliente
+    public function save(Request $request) //cria ou atualiza a simulacao
     {
         $simu = Simulacao::find($request->id);
         $vendedor = Vendedor::find($request->vendedores);  
@@ -40,7 +40,7 @@ class AdminSimulacaoController extends Controller
         $vendedor->simulacoes()->save($simu);          
        // $simu->save();        
 
-        return redirect()->route('admin_simulacoes')->with( ['message' => 'User saved successfully!', 'type' => 'success'] );
+        return redirect()->route('admin_simulacoes')->with( ['message' => 'Simulação atualizada', 'type' => 'success'] );
 
     }
    

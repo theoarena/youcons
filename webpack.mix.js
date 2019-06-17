@@ -16,7 +16,8 @@ mix.js('resources/assets/js/app.js', 'public/js');
 //mix.copy('node_modules/jquery-mask-plugin/dist/jquery.mask.min.js', 'public/js');
 
 mix.sass('resources/assets/sass/app.scss', 'public/css').
-	sass('resources/assets/sass/admin.scss', 'public/css').
-	sass('resources/assets/sass/cliente.scss', 'public/css');
+	//sass('resources/assets/sass/cliente.scss', 'public/css').
+	sass('resources/assets/sass/admin.scss', 'public/css');
+
 
 mix.copyDirectory('node_modules/inputmask', 'public/js/inputmask');

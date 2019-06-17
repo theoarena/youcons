@@ -32,7 +32,7 @@
 
 
 @push('tools-button')    
-    <a v-on:click.prevent="downloadCsv('{{ route('api_simulacao.csv') }}')" href="#" class="form-control btn btn-area btn-csv">Download Excel</a>
+    <a v-on:click.prevent="downloadCsv('{{ route('api_simulacao.csv') }}')" href="#" class="btn-csv btn-area btn ">Download Excel</a>
 @endpush
 
 @section('content')  

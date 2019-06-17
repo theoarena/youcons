@@ -27,6 +27,7 @@ class IndicacaoEmailJob implements ShouldQueue
      */
     public function __construct($email,$user,$indicacao)
     {
+       
          $this->email = $email;        
          $this->user = $user;        
          $this->indicacao = $indicacao;        

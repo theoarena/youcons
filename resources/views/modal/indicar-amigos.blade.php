@@ -16,10 +16,10 @@
 	    	</div>
 	    	<div class="row">
 	    		<div class="col">
-	    			<p class="">Quando você indica alguém e essa pessoa cria uma conta conosco, você <strong>ganha pontos!</strong></p>
+	    			<p class="text-justify">Quando você indica alguém e essa pessoa cria uma conta conosco, você <strong>ganha pontos!</strong></p>
 	    		</div>
 	    		<div class="col">
-	    			<p>Se a pessoa que você indicou fechar um consórcio conosco, você ganha <strong>mais pontos!</strong></p>	    			
+	    			<p class="text-justify">Se a pessoa que você indicou fechar um consórcio conosco, você ganha <strong>mais pontos!</strong></p>
 	    		</div>
 	    	</div>
 	    	<div class="row">
@@ -44,9 +44,6 @@
 	    	
 	    	
 
-	    </div>
-	    <div class="modal-footer">
-	      <button type="button" class="btn btn-light-blue" data-dismiss="modal">cancelar</button>      
 	    </div>
 	  </div>
 	</div>

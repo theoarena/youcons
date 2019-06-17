@@ -29,6 +29,11 @@ class Simulacao extends Model
     {
       return Simulacao::where('active',0)->whereDate('created_at','<=', date('Y-m-d H:i:s'))->get();
     }
+
+     public function consorcio()
+    {
+        return $this->hasOne('App\Consorcio','simulacao_id');
+    }
 	
 	/* 
 		Como só há 3 tipos de modalidades, não há necessidade de fazer um model, etc.

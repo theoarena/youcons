@@ -25,7 +25,7 @@ class AdminSimulacaoForm extends Form
         ->add('submit', 'submit', 
             [
                 'label' => 'Salvar',
-                'attr' => ['class' => 'form-control btn-enviar']
+                'attr' => ['class' => 'form-control btn btn-enviar']
             ]
         );
 

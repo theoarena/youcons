@@ -23,8 +23,7 @@ class HomeForm extends Form
                 'attr' => ['placeholder' => 'R$'], 'label' => 'Valor da parcela esperada' ])
 
             ->add('lance', 'text', ['rules' => 'max:20',
-                'attr' => ['placeholder' => 'R$'] , 'label' => 'Valor do lance disponível'])
-
+                'attr' => ['placeholder' => 'R$'] , 'label' => 'Valor do lance disponível'])            
             ->add('obs', 'textarea', ['rules' => 'max:250', 'attr' => ['placeholder' => 'Observações'] ])
             
             /*->add('pressa', 'select', [

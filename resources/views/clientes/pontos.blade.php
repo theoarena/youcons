@@ -106,23 +106,7 @@
               <div class="col">
                 <button class="btn" id="btn-tesouros-info" data-toggle="modal" data-target="#modaltesouros">O que são os tesouros?</button>
               </div>
-            </div>
-
-           {{--  <div class="row no-gutters">   
-              <div class="col">
-                <iframe width="100%" height="315" src="https://www.youtube.com/embed/YSykw8vOJ-Y" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-              </div>
-            </div>
-
-            <div class="row no-gutters">   
-              <div class="col">
-                <button class="btn btn-tesouros-info">O que são os tesouros?</button>
-              </div>
-               <div class="col">
-                <button class="btn btn-tesouros-info">Onde encontro os tesouro?</button>
-              </div>
-            </div> --}}
-
+            </div>         
 
             <div class="row no-gutters">   
               <div class="col" id="tesouros">                  

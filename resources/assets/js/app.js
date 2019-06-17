@@ -39,12 +39,14 @@ Vue.use(VueRangedatePicker);
 
 Vue.component('youcon-component', require('./components/Youcon.vue') );
 Vue.component('simulacao-app', require('./components/Simulacao.vue') );
+Vue.component('simulacao-opcao', require('./components/Simulacao__opcao.vue') );
+Vue.component('simulacao-item', require('./components/Simulacao__item.vue') );
 Vue.component('btn-favorite', require('./components/Favorite.vue') );
 Vue.component('vue-circle', VueCircle);
 Vue.component('rangedate-picker', VueRangedatePicker);
 Vue.component('app-bemvindo', require('./components/Bemvindo.vue'));
 Vue.component('tesouros-app', require('./components/Tesouros.vue'));
-//Vue.component('list', require('./components/ListComponent.vue') );
+Vue.component('modal-contratar', require('./components/Modal.vue') );
 
 //Vue.use(ServerTable, [options = {}], [useVuex = false], [theme = 'bootstrap3'], [template = 'default']);
 

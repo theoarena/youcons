@@ -8,9 +8,12 @@ use Kris\LaravelFormBuilder\FormBuilder;
 use Intervention\Image\ImageManagerStatic as Image;
 use Illuminate\Support\Facades\Storage;
 
+
+
 use App\User;
 use App\Indicacao;
-use App\Jobs\IndicacaoEmail;
+use App\Jobs\IndicacaoEmailJob;
+//use Illuminate\Support\Facades\Log;
 
 class ClienteController extends Controller
 {
@@ -28,7 +31,7 @@ class ClienteController extends Controller
             return redirect()->route('clientes_bem-vindo');
 
         return view('clientes.simulacoes', ['apiUrl' => route('api_getsimulacoes', ['cliente' => $user->id ] ), "pageTitle" => "Minhas simulações"] );     
-     //   return view('clientes.home', ["pageTitle" => "Área de clientes"]);
+
     }
 
     public function indicar_amigo( Request $request)
@@ -51,8 +54,9 @@ class ClienteController extends Controller
                 $indicacao->user_id = $request->input('user');
                 $indicacao->key = $secret;
                 if($indicacao->save())
-                {                    
-                    IndicacaoEmailJob::dispatch( $request->input('email'), $request->input('user'), $indicacao->id )->onQueue('emails');
+                {
+                    Mail::to($request->input('email'))->queue( new IndicacaoCreated($request->input('email'), $request->input('user'), $indicacao->id) );  
+                    //IndicacaoEmailJob::dispatch( $request->input('email'), $request->input('user'), $indicacao->id )->onQueue('emails');
                     $msg = "indicacao-success";
                 }
             }

@@ -20,7 +20,7 @@ class RedirectIfAuthenticated
         if (Auth::guard($guard)->check()) {            
 
             $auth = Auth::user()->roles()->first();
-          // echo $auth->name;exit;
+
             switch ($auth->name) {
                 case 'admin': return redirect()->route('admin'); break;
                 case 'cliente': return redirect()->route('clientes'); break;

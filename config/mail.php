@@ -29,7 +29,7 @@ return [
     |
     */
 
-    'host' => env('MAIL_HOST', 'smtp.gmail.com'),
+    'host' => env('MAIL_HOST', 'mail.youcons.com.br'),
 
     /*
     |--------------------------------------------------------------------------
@@ -56,15 +56,15 @@ return [
     */
 
     'from' => [
-        'address' => env('MAIL_FROM_ADDRESS', 'theoarena@gmail.com'),
-        'name' => env('MAIL_FROM_NAME', 'Théo Arena'),
+        'address' => env('MAIL_FROM_ADDRESS', 'contato@youcons.com.br'),
+        'name' => env('MAIL_FROM_NAME', 'Youcons'),
     ],
 
-    'to' => [
+  /*  'to' => [
         'address' => 'theoarena@gmail.com',
         'name' => 'Théo'
     ],      
-
+*/
     /*
     |--------------------------------------------------------------------------
     | E-Mail Encryption Protocol

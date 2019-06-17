@@ -11,26 +11,22 @@
 |
 */
 
-/*Route::get('/info', function(){
-	phpinfo();
-});*/
+Route::match(['get', 'post'], '/simulacao', 'HomeController@landing_page')->name('landing_page');
 
-Route::get('/teste', function(Request $request){
 
-    $simu = App\Simulacao::find(39);
-    return new App\Mail\SimulacaoCreated($simu);   
-
-});
+Route::get('/teste-email', 'HomeController@teste_email')->name('teste_email');
 
 Route::get('/', 'HomeController@index');
 Route::get('/home', 'HomeController@index')->name('home');
 Route::post('/home/simulacao', 'HomeController@simulacao')->name('simulacao_home');
+Route::post('/home/contato', 'HomeController@contato')->name('contato_home');
+
 
 Route::get('/indicacao', 'HomeController@indicacao')->name('indicacao');
 Route::post('/indicacao-save', 'HomeController@indicacao_save')->name('indicacao_save');
-
+Route::get('/nao-autorizado', 'HomeController@nao_autorizado')->name('nao_autorizado');
 //Admin
-Route::middleware(['auth'])->prefix('admin')->group(function () {
+Route::middleware(['auth','admin'])->prefix('admin')->group(function () {
     
 	Route::get('/', 'AdminController@index')->name('admin');
 
@@ -65,32 +61,28 @@ Route::middleware(['auth'])->prefix('admin')->group(function () {
 
 	Route::get('/perfil', 'AdminController@profile')->name('admin_perfil');
 
-});
+	Route::get('/rprogram', 'AdminController@rprogram')->name('admin.r');
 
-Route::get('/mailable', function () {
-	$user = App\User::find(Auth::id());
-	//$user->sendMailUserCreated('testepass');
-	return new App\Mail\IndicacaoCreated('theoarena@hotmail',$user,6);
 });
 
 //clientes 
 Route::middleware(['auth'])->prefix('clientes')->group(function () {
 
-Route::get('/', 'ClienteController@index')->name('clientes');
-Route::get('/perfil', 'ClienteController@profile')->name('clientes_perfil');
-Route::get('/ovos-de-ouro', 'ClienteController@pontos')->name('clientes_pontos');
-Route::post('/perfil/save', 'ClienteController@save')->name('clientes_profile.save');
-Route::post('/perfil/save-picture', 'ClienteController@save_picture')->name('clientes_profile_picture.save');
+        Route::get('/', 'ClienteController@index')->name('clientes');
+        Route::get('/perfil', 'ClienteController@profile')->name('clientes_perfil');
+        Route::get('/ovos-de-ouro', 'ClienteController@pontos')->name('clientes_pontos');
+        Route::post('/perfil/save', 'ClienteController@save')->name('clientes_profile.save');
+        Route::post('/perfil/save-picture', 'ClienteController@save_picture')->name('clientes_profile_picture.save');
 
-Route::get('/bem-vindo', 'ClienteController@bem_vindo')->name('clientes_bem-vindo');
-Route::post('/indicar-amigo', 'ClienteController@indicar_amigo')->name('clientes_indicar-amigo');
+        Route::get('/bem-vindo', 'ClienteController@bem_vindo')->name('clientes_bem-vindo');
+        Route::post('/indicar-amigo', 'ClienteController@indicar_amigo')->name('clientes_indicar-amigo');
 
-Route::get('/simulacoes', 'ClienteSimulacoesController@index')->name('clientes_simulacoes');
-Route::get('/simulacoes/new', 'ClienteSimulacoesController@new')->name('clientes_simulacoes.new');
-Route::get('/simulacoes/edit/{id?}', 'ClienteSimulacoesController@edit')->name('clientes_simulacoes.edit');
-Route::post('/simulacoes/save', 'ClienteSimulacoesController@save')->name('clientes_simulacoes.save');
+        //Route::get('/simulacoes', 'ClienteSimulacoesController@index')->name('clientes_simulacoes');
+      //  Route::get('/simulacoes/new', 'ClienteSimulacoesController@new')->name('clientes_simulacoes.new');
+       // Route::get('/simulacoes/edit/{id?}', 'ClienteSimulacoesController@edit')->name('clientes_simulacoes.edit');
+    //    Route::post('/simulacoes/save', 'ClienteSimulacoesController@save')->name('clientes_simulacoes.save');
 
-Route::get('/simulacoes/nova-simulacao', 'ClienteSimulacoesController@nova_simulacao')->name('clientes_simulacoes.nova-simulacao');
+        Route::get('/simulacoes/nova-simulacao', 'ClienteSimulacoesController@nova_simulacao')->name('clientes_simulacoes.nova-simulacao');
 
 });
 
@@ -101,3 +93,6 @@ Route::get('/auth/logout', '\App\Http\Controllers\Auth\LoginController@logout')-
 //facebook login routes
 Route::get('/redirect', 'SocialAuthFacebookController@redirect');
 Route::get('/callback', 'SocialAuthFacebookController@callback');
+
+//Route::redirect('/home', '/simulacao');
+//Route::redirect('/', '/simulacao');

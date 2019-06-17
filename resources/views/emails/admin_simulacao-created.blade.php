@@ -1,8 +1,6 @@
 <div style="margin: 30px 0;font-family: Verdana; ">
 	<img src="{{ $message->embed(public_path() . '/images/logo.jpg') }}" style="display: block;margin: 30px auto 10px">
-	<div style="border-radius: 3px;display: block;margin: 0 auto; background: #52b3d7;max-width:500px;width: 100%;padding: 20px;background: -webkit-gradient(linear, left top, left bottom, from(#52b3d7), to(#489ebd));
-background: linear-gradient(to bottom, #52b3d7 0%, #489ebd 100%);
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#52b3d7', endColorstr='#489ebd',GradientType=0 );border-bottom: 2px solid #3A7E97; text-shadow: 0px 0.5px 0px #3A7E97;">
+	<div style="border-radius: 3px;display: block;margin: 0 auto; background: #52b3d7;max-width:500px;width: 100%;padding: 20px;border-bottom: 2px solid #489ebd; text-shadow: 0px 0.5px 0px #3A7E97;">
 		<h2 style="color:#f7f7f7">Nova simulação gerada!</h2>	
 		
 		<p style="color:#f7f7f7">Cliente: {{ $simulacao->cliente->name }}</p>

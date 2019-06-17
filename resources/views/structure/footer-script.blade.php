@@ -8,17 +8,17 @@
 	          <span aria-hidden="true">&times;</span>
 	        </button>
 	      </div>
-	      <div class="modal-body">	      	
+	      <div class="modal-body">
 	        <p>@include( Session::get('modal_view') )</p>
 	      </div>
 	      <div class="modal-footer">
-	        <button type="button" class="btn btn-info" data-dismiss="modal">Ok</button>      
+	        <button type="button" class="btn btn-close" data-dismiss="modal">Ok</button>
 	      </div>
 	    </div>
 	  </div>
 	</div>
 
-	<script type="text/javascript">			
+	<script type="text/javascript">
 		$('#modal_formhome').modal('show');
 	</script>
 
@@ -28,40 +28,41 @@
 
 <script type="text/javascript">
 	var offset = 55;
-	
-	$('body').scrollspy({ target: 'header',offset: offset })
 
+	$('body').scrollspy({ target: 'header',offset: offset });
 
 	$('header li a.nav-link').click(function(event) {
 	    	//event.preventDefault();
-	    	
 
-	     // Make sure this.hash has a value before overriding default behavior
-		  if (this.hash !== "") {
+     // Make sure this.hash has a value before overriding default behavior
+      if (this.hash !== "") {
 
-		    // Prevent default anchor click behavior
-		    event.preventDefault();
+        // Prevent default anchor click behavior
+        event.preventDefault();
 
-		    // Store hash
-		    var hash = this.hash;		   
+        // Store hash
+        var hash = this.hash;
 
-		    // Using jQuery's animate() method to add smooth page scroll
-		    // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
-		    $('html, body').animate({
-		      scrollTop: $(hash).offset().top - offset
-		    }, 800, 'swing' ,function(){
+        if(hash == '#ajuda')
+            $('html, body').animate({
+                scrollTop: $(hash).offset().top - 200
+            }, 800, 'swing' ,function(){});
+        else
+            $('html, body').animate({
+              scrollTop: $(hash).offset().top - offset
+            }, 800, 'swing' ,function(){
 
-		    // Add hash (#) to URL when done scrolling (default click behavior)
-		      //window.location.hash = hash;
-		    });
+        // Add hash (#) to URL when done scrolling (default click behavior)
+          //window.location.hash = hash;
+        });
 
-		  } // End if
+      } // End if
 
-	});	
+	});
 
 	$(document).on("scroll", function(){
 		if
-      ($(document).scrollTop() > 100){
+      ($(document).scrollTop() > 90){
 		  $("header").addClass("shrink");
 		}
 		else

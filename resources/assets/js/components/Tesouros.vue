@@ -29,12 +29,11 @@
   {
     props: ['user_id'],
     data:function (){
-			return{				
-				codigo: "",
-        retMsg: "",
-        showMsg: false,
-        tesouros:[]
-			}
+        return{
+            codigo: "",
+            showMsg: false,
+            tesouros:[]
+        }
     },
     methods:{
 
@@ -42,34 +41,35 @@
 
       getVoucher:function(){
 
-        var status = 'voucher-preencha';
+        var msg = 'voucher-preencha';
+        //this.retMsg  = 'voucher-preencha';
 
         if(this.codigo != "")
         {
-          axios.post('/api/vouchers/validate',{codigo:this.codigo, user_id:this.user_id}).then(
-            response => {            
+            msg = 'voucher-naoencontrado';
 
-              status = response.data.status;
-              this.retMsg = status;
-              
-              if(status == "voucher-inserido")
-              {             
-                this.codigo = "";
-                this.getTesouros();
-              }                                      
+            axios.post('/api/vouchers/validate',{"codigo":this.codigo, "user_id":this.user_id}).then(
+                response => {
 
-          });
+                    msg = response.data.status;
+                    if(msg == "voucher-inserido")
+                    {
+                        this.codigo = "";
+                        this.getTesouros();
+                    }
+
+                }
+            );
 
         }
 
-        EventBus.$emit('new-message',status);  
+        EventBus.$emit('new-message',msg);
 
       },
       getTesouros:function(){
-
         axios.get('/api/tesouros',{ params:{ user_id:this.user_id} }).then(
           response => {
-            console.log(response.data);
+            console.log(response);
             this.tesouros = response.data[0];
           }
         );

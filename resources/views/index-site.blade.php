@@ -33,14 +33,15 @@
         @section('banner')
         @show
       
-        <main class="container-fluid no-gutter" id="sobre">
+        <main class="container-fluid no-gutter">
             @yield('content')
         </main>
 
         <footer class="container-fluid no-gutter" id="contato"> @include('structure.footer') </footer>
 
+        @include('modal/modal-banner')        
+        @include('modal/modal-contato')        
         @include('structure/footer-script')
-        @include('structure/modal-banner')        
        
     </body>
 </html>

@@ -18,7 +18,7 @@
         <title>Youcons - Área de clientes</title>
         <link rel='shortcut icon' type='image/x-icon' href='{{ asset('images/favicon.ico') }}' />
         <link href="{{ mix('css/app.css') }}" rel="stylesheet">
-        <link href="{{ mix('css/cliente.css') }}" rel="stylesheet">
+        {{--<link href="{{ mix('css/cliente.css') }}" rel="stylesheet">--}}
         <script src="{{ mix('js/app.js') }}"></script>
     </head>
     <body data-spy="scroll" data-target="#top-menu" id="admin">

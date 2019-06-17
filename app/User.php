@@ -15,8 +15,7 @@ use App\Notifications\ResetPasswordNotification;
 
 class User extends Authenticatable
 {
-    use SoftDeletes;
-    use Notifiable;
+    use HasApiTokens, Notifiable, SoftDeletes;
 
     protected $dates = ['deleted_at'];
 

@@ -83,7 +83,7 @@ class RegisterController extends Controller
         $user->addRole('cliente'); //adiciona a role padrão CLIENTE
 
         //envia email de boas vindas
-        Mail::to($user->email)->send( new UserCreated($user, $pass) );   
+        Mail::to($user->email)->queue( new UserCreated($user, $pass) );         
         //UserCreatedEmail::dispatch($user,$pass); 
 
         return $user;

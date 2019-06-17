@@ -5,7 +5,7 @@
 
          <div id="submenu_header">
              <a href="{{ route('login') }}" id="login_header">área do cliente</a>|
-             <span id="fone_header">Fone: (19) 9 9876 5432</span>             
+             <span id="fone_header">Fone: (19) 9 9260-0645</span>
          </div>
 
           <button id="hamburg_toggler" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#hamburg_menu" aria-controls="hamburg_menu" aria-expanded="false" aria-label="Toggle mobile menu">

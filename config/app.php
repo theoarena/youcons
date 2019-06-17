@@ -162,7 +162,8 @@ return [
         Laravel\Socialite\SocialiteServiceProvider::class,
         Kris\LaravelFormBuilder\FormBuilderServiceProvider::class,
         Watson\Active\ActiveServiceProvider::class,
-        Intervention\Image\ImageServiceProvider::class
+        Intervention\Image\ImageServiceProvider::class,
+        Queueworker\SansDaemon\SansDaemonServiceProvider::class
 
     ],
 

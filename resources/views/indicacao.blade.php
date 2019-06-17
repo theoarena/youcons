@@ -5,7 +5,7 @@
 
 @section('content') 
   
-	<div class="container" id="form-indicacao">	
+	<div class="container" id="form-indicacao">
 
 		@if($msg == "success")
 			<div class="row justify-content-md-center mt-5">

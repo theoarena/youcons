@@ -24,9 +24,12 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        $schedule->command('queue:work --queue=emails')->everyFiveMinutes()->withoutOverlapping(5);
+        //$schedule->command('queue:restart')->everyFifteenMinutes();
+
+        $schedule->command('queue:work --sansdaemon --max_exec_time=45s')->withoutOverlapping();//->emailOutputTo('theoarena@gmail.com');
         // $schedule->command('inspire')
         //          ->hourly();
+        // --queue=emails
     }
 
     /**

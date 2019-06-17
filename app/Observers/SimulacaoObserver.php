@@ -1,9 +1,10 @@
 <?php
 
 namespace App\Observers;
-
+use Illuminate\Support\Facades\Log;
 use App\Simulacao;
-use App\Jobs\SimulacaoEmailJob;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\SimulacaoCreated;
 
 class SimulacaoObserver
 {
@@ -16,7 +17,17 @@ class SimulacaoObserver
     public function created(Simulacao $simulacao)
     {
         //envia msg de aviso ao admin
-        SimulacaoEmailJob::dispatch($simulacao,'admin-created')->onQueue('emails');
+       //SimulacaoEmailJob::dispatch(,'admin-creted')->onQueue('emails');
+
+        $log = [
+              "data" => date("d/m/Y"),
+              "simulação" => $simulacao,
+              "user" => $simulacao->cliente
+        ];
+       Log::debug('Simulação', $log);
+
+        Mail::to("vendas@youcons.com.br")->queue( new SimulacaoCreated($simulacao) );
+        //Mail::to("theoarena@gmail.com")->queue( new SimulacaoCreated($simulacao) );
     }
 
     /**
