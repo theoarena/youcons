@@ -1,0 +1,251 @@
+@mixin defaulButton($bg-color, $text-color, $border-size: 2px, $font-family:"Open Sans", $weight:"normal"){
+
+	$bg-hover-color: darken($bg-color, $darken-bg-hover);
+	$border-bottom-color: darken($bg-color, $darken-border-bottom);
+
+	color:$text-color ;
+	background: $bg-color;
+	border-bottom: $border-size solid $border-bottom-color;
+
+	cursor: pointer;
+	font-weight: $weight;
+	font-family: $font-family;
+
+	&:hover{
+		background: $bg-hover-color;
+	}
+
+}
+
+.btn {
+
+	border-radius: 3px !important;
+	transition: background-color 0.23s ease;
+
+	&:focus, &.focus {
+		box-shadow: none !important;
+		-webkit-box-shadow: none !important
+	}
+
+}
+
+.btn-light-blue {
+
+	color: #f7f7f7;
+	border-bottom: 2px solid #3A7E97 !important;
+	background: #489EBD;
+	&:hover {
+		background: #3A7E97
+	}
+
+}
+
+#btn-clearsearch {
+	display: block;
+	position: absolute;
+	border: none;
+	border-radius: 50px;
+	background: #e7e7e7;
+	color: #777777;
+	text-align: center;
+	right: 10px;
+	bottom: 7px;
+	cursor: pointer;
+	font-size: 14px !important;
+	opacity: 0.8;
+	font-weight: 600 !important;
+	padding: 0 9px 2px;
+	&:hover {
+		opacity: 1;
+		background: #e4e4e4
+	}
+}
+
+.btn-confirm-delete {
+	cursor: pointer;
+}
+
+.btn-assista {
+	font-family: open sans;
+	font-weight: 600 !important;
+	padding: 12px 20px !important;
+	color: #f7f7f7;
+	margin-top: 10px;
+	background: #3C5057;
+	font-size: 16px !important;
+	border-bottom: 2px solid #2C4047 !important;
+	&:hover {
+		color: #f7f7f7;
+		background: #2C4047
+	}
+	span {
+		display: inline-block;
+		width: 18px;
+		height: 18px;
+		background: url(../images/assista.png);
+		vertical-align: sub;
+		margin-right: 15px;
+	}
+}
+
+.btn-voltar {
+	background: #3C5057;
+	color: #f7f7f7;
+	margin-top: 10px;
+	border-bottom: 2px solid #333333 !important;
+	&:hover {
+		background: #333;
+		color: #f7f7f7
+	}
+}
+
+.btn-add {
+	background: #375D7B;
+	color: #f7f7f7;
+	border-bottom: 2px solid #31536E !important;
+	&:hover {
+		background: #264054;
+		border-bottom: 2px solid #163044;
+		color: #f7f7f7 !important;
+	}
+}
+
+.btn-enviar {
+	background: #489EBD;
+	color: #f7f7f7;
+	font-family: open sans;
+	font-weight: 600 !important;
+	text-transform: uppercase; /*padding: 10px 0 !important;*/
+	border-bottom: 2px solid #3A7E97 !important;
+	cursor: pointer;
+	&:hover {
+		background: #3A7E97
+	}
+}
+
+.btn-entrar {
+	background: #375D7B;
+	color: #f7f7f7;
+	display: inline-block;
+	padding: 5px 20px !important;
+	border-bottom: 2px solid #264054 !important;
+	&:hover {
+		background: #264054
+	}
+}
+
+.btn-close {
+	background: #333;
+	color: #f7f7f7; /*font-weight: 600 !important;*/
+	font-size: 14px !important;
+	margin-top: 10px;
+	&:hover {
+		background: #222
+	}
+}
+
+.btn-csv {
+	background: #BA832E;
+	color: #f7f7f7;
+	border-bottom: 2px solid #6E5631 !important;
+	&:hover {
+		background: #AA731E;
+		color: #f7f7f7;
+	}
+}
+
+.btn-area {
+	font-family: open sans;
+	font-weight: 600 !important;
+	text-transform: uppercase;
+	font-size: 0.84rem !important;
+	letter-spacing: 0.3px;
+}
+
+.btn-facebook {
+	background: #4267B2;
+	color: #f7f7f7;
+	font-family: open sans;
+	padding: 10px 20px !important;
+	font-weight: 600 !important;
+	border-bottom: 2px solid #3257A2 !important;
+	&:hover {
+		background: #3257A2;
+		color: #f7f7f7
+	}
+}
+
+.btn-ver {
+	background: #52B3D7;
+	color: #f7f7f7;
+	border-bottom: 2px solid #489EBD !important;
+	&:hover {
+		background: #489EBD;
+		color: #f7f7f7;
+		border-bottom: 2px solid #3A7E97 !important
+	}
+}
+
+.btn-remover {
+	background: #3C5057;
+	color: #f7f7f7;
+	border-bottom: 2px solid #333333 !important;
+	&:hover {
+		background: #2C4047;
+		color: #f7f7f7;
+		border-bottom: 2px solid #222222 !important
+	}
+}
+
+.btn-contratar-list {
+
+	@include defaulButton($color-dark-secondary, $color-grey-primary );
+
+}
+
+.btn-contratar {
+	font-size: 1rem;
+	@include defaulButton($color-shade-tertiary, $color-grey-primary , $weight:bold);
+
+	&--big{
+		padding: 1rem 2rem;
+	}
+}
+
+.btn-green {
+	font-size: 1rem;
+	@include defaulButton($color-accent-primary, $color-grey-primary , $weight:bold);
+}
+
+.btn-contratar-outro {
+	font-size: 1rem;
+	@include defaulButton($color-grey-quaternary, $color-dark-secondary );
+}
+
+.btn-changestep {
+	font-size: 1rem;
+	@include defaulButton($color-shade-secondary, $color-grey-primary);
+}
+
+.btn-proximo {
+
+	font-size: 1rem;
+	vertical-align: middle;
+	padding: 2px 9px;
+	margin-top: 0;
+	margin-left: 10px;
+
+	@include defaulButton($color-shade-secondary, $color-grey-primary);
+
+}
+
+.btn-finalstep {
+
+	@include defaulButton($color-accent-primary, $color-grey-primary);
+	//letter-spacing: 1px;
+
+	span {
+		margin-left: 10px;
+	}
+
+}

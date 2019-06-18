@@ -1,0 +1,76 @@
+.btnsimufade {
+	&-enter-active, &-leave-active {
+		transition: all 1s;
+	}
+	&-enter, &-leave-to {
+		opacity: 0;
+		margin-top: 0px
+	}
+}
+
+.youconfade {
+	&-enter-active, &-leave-active {
+		transition: opacity 1s;
+	}
+	&-enter, &-leave-to {
+		opacity: 0;
+	}
+}
+
+.titfade {
+	&-enter-active, &-leave-active {
+		transition: opacity 1.3s;
+	}
+	&-enter, &-leave-to {
+		opacity: 0;
+	}
+}
+
+.progress_fade {
+	&-enter-active { transition: opacity 1.3s; }
+	&-leave-active { transition: opacity .5s; }
+	&-enter, &-leave-to {
+		opacity: 0;
+	}
+}
+
+
+.msgfade {
+	&-enter-active, &-leave-active {
+		transition: all 0.3s ease-out;
+	}
+	&-enter, &-leave-to {
+		opacity: 0;
+		top: -10px;
+	}
+}
+
+.step-fade {
+	&-enter-active, &-leave-active {
+		transition: opacity 0.2s ease;
+	}
+	&-enter, &-leave-to {
+		opacity: 0;
+	}
+}
+
+.message_fade {
+	&-enter-active, &-leave-active {
+		transition: opacity .5s;
+	}
+	&-enter, &-leave-to {
+		opacity: 0;
+	}
+}
+
+.youcon-msg-fade {
+	&-enter-active {
+		transition: all .3s ease;
+	}
+	&-leave-active {
+		transition: all .8s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+	}
+	&-enter, &-leave-to {
+		opacity: 0;
+	}
+}

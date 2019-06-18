@@ -6,6 +6,11 @@ blog/
 *.sublime-project
 *.sublime-workspace
 public/js/inputmask/
+.idea/
+database/migrations/
+public/fonts/
+resources/assets/sass/Webfonts/
+storage/framework/sessions
 
 # Laravel 4 specific
 bootstrap/compiled.php
@@ -20,6 +25,8 @@ storage/*.key
 .env
 Homestead.yaml
 Homestead.json
+
+
 
 # Rocketeer PHP task runner and deployment package. https://github.com/rocketeers/rocketeer
 .rocketeer/
