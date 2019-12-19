@@ -48,6 +48,21 @@ Vue.component('app-bemvindo', require('./components/Bemvindo.vue'));
 Vue.component('tesouros-app', require('./components/Tesouros.vue'));
 Vue.component('modal-contratar', require('./components/Modal.vue') );
 
+Vue.component(
+    'passport-clients',
+    require('../../js/components/passport/Clients.vue')
+);
+
+Vue.component(
+    'passport-authorized-clients',
+    require('../../js/components/passport/AuthorizedClients.vue')
+);
+
+Vue.component(
+    'passport-personal-access-tokens',
+    require('../../js/components/passport/PersonalAccessTokens.vue')
+);
+
 //Vue.use(ServerTable, [options = {}], [useVuex = false], [theme = 'bootstrap3'], [template = 'default']);
 
 /*Vue.component('vue-list-component', require('./components/ListComponent.vue'));

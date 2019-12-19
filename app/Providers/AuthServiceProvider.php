@@ -3,9 +3,12 @@
 namespace App\Providers;
 
 use App\Services\Auth\JwtGuard;
+use Laravel\Passport\Passport;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
+
+
 
 class AuthServiceProvider extends ServiceProvider
 {
@@ -15,7 +18,7 @@ class AuthServiceProvider extends ServiceProvider
      * @var array
      */
     protected $policies = [
-       // 'App\Model' => 'App\Policies\ModelPolicy',
+       'App\Model' => 'App\Policies\ModelPolicy',
         //User::class => AdminAreaPolicy::class,
     ];
 
@@ -30,11 +33,11 @@ class AuthServiceProvider extends ServiceProvider
 
         Passport::routes();
 
-        Auth::extend('jwt', function ($app, $name, array $config) {
+       /* Auth::extend('jwt', function ($app, $name, array $config) {
             // Return an instance of Illuminate\Contracts\Auth\Guard...
 
             return new JwtGuard(Auth::createUserProvider($config['provider']));
-        });
+        });*/
 
         Gate::define('admin-access', function ($user) {
                 return $user->hasRole('admin');

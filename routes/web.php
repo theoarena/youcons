@@ -88,7 +88,16 @@ Route::middleware(['auth'])->prefix('clientes')->group(function () {
 
 Auth::routes();
 
-Route::get('/auth/logout', '\App\Http\Controllers\Auth\LoginController@logout')->name('logout');
+//Route::group( ['prefix' => 'auth'], function () {
+//
+//  //  Route::post('/login', '\App\Http\Controllers\Auth\LoginController@login')->name('login');
+//    Route::post('/signup', '\App\Http\Controllers\Auth\LoginController@signup')->name('signup');
+//    Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout')->name('logout');
+//
+//});
+
+
+
 
 //facebook login routes
 Route::get('/redirect', 'SocialAuthFacebookController@redirect');

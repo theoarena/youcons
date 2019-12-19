@@ -1,5 +1,5 @@
-<template>	
-	<div>    
+<template>
+	<div>
     <p id="encontrei-ovo">Encontrei um ovo de ouro!</p>
     
     <div id="tesouros-head" class="row no-gutters">      

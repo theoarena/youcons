@@ -11,6 +11,7 @@ use App\Interacao;
 use App\Voucher;
 use App\Simulacao;
 use App\Notifications\ResetPasswordNotification;
+use Laravel\Passport\HasApiTokens;
 
 
 class User extends Authenticatable

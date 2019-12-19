@@ -63,7 +63,7 @@
        })->name('api_getvouchers');
 
 //valida o voucher e insere no histórico do usuario
-       Route::post('/vouchers/validate', function(Request $request){
+       Route::middleware('auth')->post('/vouchers/validate', function(Request $request){
 
               $codigo = $request->input("codigo", null);
               $user_id = $request->input("user_id", null);
